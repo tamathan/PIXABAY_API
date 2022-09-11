@@ -1,4 +1,3 @@
-import 'dart:ffi';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -39,7 +38,6 @@ class _PixabayPageState extends State<PixabayPage> {
         'https://pixabay.com/api/?key=29701485-4a0a0f9e3e9d03b43fd6a66b9&q=$text&image_type=photo&per_page=100');
     hits = response.data['hits'];
     setState(() {});
-    print(hits);
   }
 
   @override
@@ -67,7 +65,7 @@ class _PixabayPageState extends State<PixabayPage> {
       ),
       body: GridView.builder(
         gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
         itemCount: hits.length,
         itemBuilder: (context, index) {
           Map<String, dynamic> hit = hits[index];
@@ -99,14 +97,14 @@ class _PixabayPageState extends State<PixabayPage> {
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.thumb_up_alt_outlined,
                               size: 16,
                               color: Color.fromARGB(255, 206, 38, 38),
                             ),
                             Text(
                               '${hit['likes']}',
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: Color.fromARGB(255, 206, 38, 38),
                                   fontSize: 16),
                             ),
